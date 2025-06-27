@@ -39,7 +39,6 @@ passport.use(
                 const jwt = signJwtToken({ userId: user._id }, { secret: config.JWT_SECRET });
                 req.jwt = jwt;
 
-
                 done(null, user);
             } catch (error) {
                 done(error, false);

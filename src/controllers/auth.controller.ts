@@ -12,6 +12,8 @@ export const googleLoginCallback = asyncHandler(
 
         const jwt = req.jwt;
 
+
+
         const currentWorkspace = req.user?.currentWorkspace;
         // if (!currentWorkspace) {
         //     return res.redirect(
@@ -30,8 +32,8 @@ export const googleLoginCallback = asyncHandler(
         }
 
         return res.redirect(
-              `${config.FRONTEND_ORIGIN}/workspace/${currentWorkspace}`
-            // `${config.FRONTEND_GOOGLE_CALLBACK_URL}?status=success&acceFss_token=${jwt}&current_workspace=${currentWorkspace}`
+            // `${config.FRONTEND_ORIGIN}/workspace/${currentWorkspace}`
+            `${config.FRONTEND_GOOGLE_CALLBACK_URL}?status=success&access_token=${jwt}&current_workspace=${currentWorkspace}`
         )
 
     }
